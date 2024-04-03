@@ -24,6 +24,7 @@ Currently, we have only one snapshot of the volume and that volume is attached t
 ![image](https://github.com/rahulwagh09/Projects/assets/128569400/5e178a4b-a2c0-44a3-9280-fb81d52f7d9c)
 
 Use the below python code:
+("ebs_stale_snapshosts.py" provide in this file)
 
 ![image](https://github.com/rahulwagh09/Projects/assets/128569400/b4e7cf91-58d5-423f-84ee-1195133b2b33)
 
