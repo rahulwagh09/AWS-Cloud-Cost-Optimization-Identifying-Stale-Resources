@@ -74,7 +74,7 @@ Now delete the instance it will delete the respective volume. Let us run the lam
 
 
 
-===========================================================================================================
+=====================================================================
 
 ## AWS Cloud Cost Optimization - Identifying Stale EBS Snapshots
 ### Overview
@@ -130,20 +130,20 @@ Copy the Lambda function code (provided above) and paste it into the Function co
 * Navigate to the CloudWatch Console.
 
 
-In the Events section, create a new rule to trigger the Lambda function on a schedule (e.g., every day).
+* In the Events section, create a new rule to trigger the Lambda function on a schedule (e.g., every day).
 
 
-Define the rate or cron expression for the schedule (e.g., rate(1 day)).
+* Define the rate or cron expression for the schedule (e.g., rate(1 day)).
 
 
-Modifying for 3-Minute Inactivity so that we can our lambda function quickly
+* Modifying for 3-Minute Inactivity so that we can our lambda function quickly
 
 #### To configure the Lambda function to delete snapshots that are not attached to any EC2 instance or whose associated volumes have been deleted after 3 minutes, follow these steps:
 
 ### Update the Time Check in the Lambda Function Code:
 
 
-Modify the part of the code that checks how long a snapshot has been inactive. Instead of deleting snapshots older than 30 days, we will delete them after 3 minutes.
+* Modify the part of the code that checks how long a snapshot has been inactive. Instead of deleting snapshots older than 30 days, we will delete them after 3 minutes.
 ### Code Changes:
 
 Replace the line checking for a snapshot older than 30 days with a check for a snapshot that is older than 3 minutes. Update the relevant section of your code as follows:
