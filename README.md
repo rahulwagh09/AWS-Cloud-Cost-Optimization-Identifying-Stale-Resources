@@ -120,11 +120,11 @@ Attach an IAM role with the following permissions to the Lambda function:
   ]
 }
 ```
-Deploy the Code:
+### Deploy the Code:
 
 Copy the Lambda function code (provided above) and paste it into the Function code section of the AWS Lambda console.
-Click Deploy to save the changes.
-Set Up CloudWatch Event for Scheduling:
+*** Click Deploy to save the changes.
+### Set Up CloudWatch Event for Scheduling:
 
 Navigate to the CloudWatch Console.
 In the Events section, create a new rule to trigger the Lambda function on a schedule (e.g., every day).
@@ -135,19 +135,25 @@ To configure the Lambda function to delete snapshots that are not attached to an
 Update the Time Check in the Lambda Function Code:
 
 Modify the part of the code that checks how long a snapshot has been inactive. Instead of deleting snapshots older than 30 days, we will delete them after 3 minutes.
-Code Changes:
+### Code Changes:
 
 Replace the line checking for a snapshot older than 30 days with a check for a snapshot that is older than 3 minutes. Update the relevant section of your code as follows:
+```
 # Replace this section:
 if datetime.utcnow() - snapshot_start_time > timedelta(days=30):
 
 # With this section:
 if datetime.utcnow() - snapshot_start_time > timedelta(minutes=3):
-Test the Lambda Function:
+```
+
+### Test the Lambda Function:
 Test the function using sample data in the Test section of the Lambda console.
 Ensure that the function executes without errors and handles snapshots and volumes correctly.
-Notes
+
+
+## Notes
 The Lambda function checks for snapshots that are not attached to any volume and deletes them. If the snapshot is associated with a volume that has been deleted, the snapshot is also deleted.
 Snapshots older than 3 minutes from unattached volumes are automatically deleted.
 Acknowledgments
+
 I would like to express my gratitude to my teacher, Abhishek Veeramalla, for his invaluable guidance and support throughout the development of this project. His expertise and dedication have been instrumental in shaping my understanding and skills. I highly recommend checking out his insightful tutorials on his YouTube channel Abhishek Veeramalla for further learning and inspiration.
