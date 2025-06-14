@@ -127,12 +127,19 @@ Copy the Lambda function code (provided above) and paste it into the Function co
 ### Set Up CloudWatch Event for Scheduling:
 
 Navigate to the CloudWatch Console.
+
+
 In the Events section, create a new rule to trigger the Lambda function on a schedule (e.g., every day).
+
+
 Define the rate or cron expression for the schedule (e.g., rate(1 day)).
+
+
 Modifying for 3-Minute Inactivity so that we can our lambda function quickly
+
 To configure the Lambda function to delete snapshots that are not attached to any EC2 instance or whose associated volumes have been deleted after 3 minutes, follow these steps:
 
-Update the Time Check in the Lambda Function Code:
+### Update the Time Check in the Lambda Function Code:
 
 Modify the part of the code that checks how long a snapshot has been inactive. Instead of deleting snapshots older than 30 days, we will delete them after 3 minutes.
 ### Code Changes:
